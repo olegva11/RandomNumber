@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -50,6 +51,13 @@ android {
 }
 
 dependencies {
+
+    implementation ("androidx.room:room-ktx:2.6.1")
+    implementation ("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+    ksp("androidx.room:room-compiler:2.6.1")
+    ksp("android.arch.persistence.room:compiler:1.1.1")
 
     implementation ("com.squareup.moshi:moshi-kotlin:1.9.3")
     implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
