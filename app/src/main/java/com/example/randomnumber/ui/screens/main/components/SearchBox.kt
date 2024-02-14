@@ -37,9 +37,6 @@ fun SearchBox(viewModel: MainViewModel) {
     val inputNumber by rememberSaveable {
         mutableLongStateOf(0)
     }
-    val inputNumberPrev by rememberSaveable {
-        mutableLongStateOf(0)
-    }
 
     val mutableNumber = remember { mutableLongStateOf(inputNumber) }
 

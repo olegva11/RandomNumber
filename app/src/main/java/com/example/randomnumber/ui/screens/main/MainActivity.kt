@@ -21,7 +21,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.randomnumber.ui.screens.main.components.HistoryBox
 import com.example.randomnumber.ui.screens.main.components.SearchBox
-import com.example.randomnumber.database.HistoryNumberEntity
 import com.example.randomnumber.route.ScreenRoute
 import com.example.randomnumber.ui.screens.detail.Detailed
 import com.example.randomnumber.ui.theme.RandomNumberTheme
@@ -35,12 +34,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             RandomNumberTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    InterestingNumbersApp(viewModel, viewModel.allRecords.value)
+                    InterestingNumbersApp(viewModel)
                 }
             }
         }
@@ -50,7 +48,7 @@ class MainActivity : ComponentActivity() {
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
-fun InterestingNumbersApp(viewModel: MainViewModel, allRecords: List<HistoryNumberEntity>) {
+fun InterestingNumbersApp(viewModel: MainViewModel) {
     val navController = rememberNavController()
 
 
