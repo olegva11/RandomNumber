@@ -33,7 +33,7 @@ import com.example.randomnumber.ui.screens.main.MainViewModel
 
 @SuppressLint("UnrememberedMutableState")
 @Composable
-fun SearchBox(modifier: Modifier = Modifier, viewModel: MainViewModel) {
+fun SearchBox(viewModel: MainViewModel) {
     val inputNumber by rememberSaveable {
         mutableLongStateOf(0)
     }
@@ -42,7 +42,6 @@ fun SearchBox(modifier: Modifier = Modifier, viewModel: MainViewModel) {
     }
 
     val mutableNumber = remember { mutableLongStateOf(inputNumber) }
-    val mutableNumberPrev = remember { mutableLongStateOf(inputNumberPrev) }
 
     var isZero by remember { mutableStateOf(true) }
 

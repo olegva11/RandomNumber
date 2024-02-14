@@ -3,7 +3,6 @@ package com.example.randomnumber.network
 import com.example.randomnumber.models.NumberResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
-import java.math.BigDecimal
 
 interface NumberService {
 

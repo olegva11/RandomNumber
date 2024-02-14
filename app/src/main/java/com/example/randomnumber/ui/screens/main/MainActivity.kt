@@ -54,14 +54,13 @@ fun InterestingNumbersApp(viewModel: MainViewModel, allRecords: List<HistoryNumb
     val navController = rememberNavController()
 
 
-    Navigation(navController, viewModel, allRecords)
+    Navigation(navController, viewModel)
 }
 
 @Composable
 fun Navigation(
     navController: NavHostController,
-    viewModel: MainViewModel,
-    allRecords: List<HistoryNumberEntity>
+    viewModel: MainViewModel
 ) {
     NavHost(
         navController = navController,

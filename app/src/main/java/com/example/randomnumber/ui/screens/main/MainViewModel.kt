@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import java.math.BigDecimal
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = (application as MainApp).appContainer.repository
@@ -51,7 +50,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         if (!number.text.isNullOrEmpty()) {
             val historyNumberEntity = HistoryNumberEntity(
                 id = 0,
-                text = number.text ?: "",
+                text = number.text,
                 isFound = number.found ?: false,
                 number = number.number ?: 0,
                 type = number.type ?: "",
