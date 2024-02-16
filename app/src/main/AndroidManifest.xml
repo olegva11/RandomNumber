@@ -19,6 +19,7 @@
         <activity
             android:name=".ui.screens.main.MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.RandomNumber">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
