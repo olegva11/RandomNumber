@@ -5,4 +5,5 @@
     <string name="input_number_and_get_info">Input number and get info:</string>
     <string name="search_by_number">Search by number</string>
     <string name="get_random_number_info">Get random number info</string>
+    <string name="format_not_correct_enter_number">Format not correct. Enter number</string>
 </resources>

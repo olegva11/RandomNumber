@@ -5,12 +5,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
@@ -19,10 +17,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.randomnumber.ui.screens.main.components.HistoryBox
-import com.example.randomnumber.ui.screens.main.components.SearchBox
 import com.example.randomnumber.route.ScreenRoute
 import com.example.randomnumber.ui.screens.detail.Detailed
+import com.example.randomnumber.ui.screens.search.SearchScreen
 import com.example.randomnumber.ui.theme.RandomNumberTheme
 
 class MainActivity : ComponentActivity() {
@@ -66,15 +63,12 @@ fun Navigation(
     )
     {
         composable(route = ScreenRoute.StartScreen.route) {
-            Column {
-                SearchBox(viewModel = viewModel)
-                HistoryBox(navController, viewModel.allRecords.collectAsState())
-            }
+            SearchScreen(viewModel = viewModel, navController = navController)
         }
-        composable("${ScreenRoute.DetailScreen.route}/{index}",
+        composable(
+            "${ScreenRoute.DetailScreen.route}/{index}",
             arguments = listOf(navArgument("index") { type = NavType.IntType })
         ) {
-
             val index = it.arguments?.getInt("index")
             index.let { idEntity ->
                 val numberDetailed = viewModel.allRecords.value.filter { it.id == idEntity }.first()
